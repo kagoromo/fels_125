@@ -1,0 +1,47 @@
+<% provide title: t("words") %>
+<h1><%= t "words" %></h1>
+<div class="panel panel-default panel-table">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-12">
+        <%= form_tag words_path, method: :get do %>
+          <div class="col-md-1">
+            <%= t "category" %>
+          </div>
+          <div class="col-md-3">
+            <%= select_tag(:category_id,
+              options_from_collection_for_select(@categories, "id", "title",
+              {selected: params[:category_id]})) %>
+          </div>
+          <div class="col-md-4 input-radio">
+           <% Settings.category.filter_type.each do |key, type| %>
+              <label>
+                <%= radio_button_tag :filter_type, type, type == params[:filter_type],
+                  checked: type == params[:filter_type] %>
+                <%= type.humanize %>
+              </label>
+            <% end %>
+          </div>
+          <div class="col-md-4">
+            <%= submit_tag t("filter"), class: "btn btn-primary custom-button-width .navbar-right" %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class="panel-body">
+  <table class="table table-striped table-bordered table-list">
+    <thead>
+      <tr>
+        <th class="col-md-5"><%= t "word" %></th>
+        <th class="col-md-7"><%= t "translation" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @words %>
+    </tbody>
+  </table>
+</div>
+<div class="panel-footer">
+  <%= will_paginate %>
+</div>

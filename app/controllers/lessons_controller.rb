@@ -23,8 +23,14 @@ class LessonsController < ApplicationController
   end
 
   def update
-    @lesson.update_attributes lesson_params
-    redirect_to categories_path
+    if @lesson.update_attributes lesson_params
+      flash[:success] = t "lesson_updated"
+      @user_answers = @lesson.user_answers
+      redirect_to [@lesson.category, @lesson]
+    else
+      flash[:danger] = t "lesson_update_failed"
+      redirect_to categories_path
+    end
   end
 
   private

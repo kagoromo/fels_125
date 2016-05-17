@@ -1,0 +1,8 @@
+<tr>
+  <td>
+    <%= word.question %>
+  </td>
+  <td>
+    <%= word.answers.find{|i| i.is_correct?}.answer %>
+  </td>
+</tr>
