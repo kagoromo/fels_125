@@ -71,6 +71,7 @@ en:
   finish: "Finish"
   correct_answer: "Correct!"
   incorrect_answer: "Incorrect!"
+  lesson_id: "Lesson %{id}"
 
   word: "Word"
   words: "Words"
@@ -126,3 +127,9 @@ en:
 
   submit_test: "Submit Test"
   lesson: "Lesson: "
+
+  activity:
+    activities: "Activities"
+    ago: "ago."
+    in: "in"
+    word: "word"

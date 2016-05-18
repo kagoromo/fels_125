@@ -4,6 +4,8 @@ class Lesson < ActiveRecord::Base
 
   has_many :user_answers, dependent: :destroy
   has_many :words, through: :user_answers
+  
+  after_update :create_learned_activity
 
   accepts_nested_attributes_for :user_answers, allow_destroy: true
 
@@ -14,5 +16,16 @@ class Lesson < ActiveRecord::Base
     words.each do |word|
       user_answers.create! user: user, category: category, word: word
     end
+  end
+
+  def correct_answer_count
+    user_answers.correct.count unless new_record?
+  end
+  
+  private
+  def create_learned_activity
+    Activity.create target_id: self.id, type_action: :learned,
+      user_id: self.user.id,
+      number: self.correct_answer_count
   end
 end

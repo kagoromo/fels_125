@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
     self == user
   end
   
+  def activities_feed
+    Activity.where(user_id: [following.ids, self.id]).order created_at: :desc
+  end
+  
   class << self
     def new_token
       SecureRandom.urlsafe_base64

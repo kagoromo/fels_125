@@ -228,3 +228,21 @@ input {
 .incorrect-answer {
   color: red;
 }
+
+.activities {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.center-child {
+  display: inline-block;
+}
+
+.center-parent {
+  text-align: center;
+}

@@ -17,4 +17,12 @@ module ApplicationHelper
     link_to name, "", class: "add_fields label label-success", data: {id: id,
       fields: fields.gsub("\n", "")}
   end
+
+  def find_user user_id
+    User.find user_id
+  end
+
+  def find_lesson lesson_id
+    Lesson.find lesson_id
+  end
 end
