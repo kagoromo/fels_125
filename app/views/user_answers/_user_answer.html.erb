@@ -9,8 +9,8 @@
             <%= ff.label answer.answer %>
           <% else %>
             <%= ff.radio_button :answer_id, answer.id, disabled: true, checked:
-              (answer.id == user_answer.answer.id) %>
-            <% if user_answer.answer.present? && (answer.id == user_answer.answer.id) %>
+              (user_answer.answer.present? && answer.id == user_answer.answer.id) %>
+            <% if (user_answer.answer.present? && answer.id == user_answer.answer.id) %>
               <% if user_answer.answer.is_correct %>
                 <%= ff.label answer.answer, class: "correct-answer" %>
                 <span class="label label-success"><%= t "correct_answer" %></span>

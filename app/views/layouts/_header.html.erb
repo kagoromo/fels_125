@@ -6,6 +6,8 @@
         <li><%= link_to t("home"), root_path %></li>
         <li><%= link_to t("help"), help_path %></li>
         <% if logged_in? %>
+          <li><%= link_to t("categories"), categories_path %></li>
+          <li><%= link_to t("words"), words_path %></li>
           <% if current_user.admin? %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -16,8 +18,6 @@
                 <li><%= link_to t("categories"), admin_categories_path %></li>
               </ul>
             </li>
-          <% else %>
-            <li><%= link_to t("categories"), categories_path %></li>
           <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
