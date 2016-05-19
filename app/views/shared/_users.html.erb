@@ -1,5 +1,5 @@
 <div class="user">
-  <%= gravatar_for user, size: Settings.size %>
+  <%= gravatar_for user, size: Settings.user.half_size %>
   <strong>
     <h1><%= link_to user.name, user %></h1>
   </strong>

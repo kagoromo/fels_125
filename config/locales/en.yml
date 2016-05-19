@@ -63,15 +63,18 @@ en:
   category_not_updated: "Category not updated"
   all_categories: "All categories"
   filter: "Filter"
+  category_id: "Category %{id}"
 
   lesson_start: "Start"
   lesson_create_failed: "Failed to start lesson"
   lesson_updated: "You have successfully finished your lesson"
   lesson_update_failed: "Failed to update lesson"
   finish: "Finish"
+  lesson_finished: "%{count}/%{total} correct answers"
   correct_answer: "Correct!"
   incorrect_answer: "Incorrect!"
   lesson_id: "Lesson %{id}"
+  
 
   word: "Word"
   words: "Words"

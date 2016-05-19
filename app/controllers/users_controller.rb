@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.activities_feed
+      .paginate page: params[:page], per_page: Settings.activity.per_page if logged_in?
   end
 
   def create

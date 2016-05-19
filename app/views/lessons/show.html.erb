@@ -7,8 +7,14 @@
         <%= current_user.name %>
       </h1>
     </section>
-    <h2><%= t("category") %><%= @lesson.category.title %></h2>
-    <h3><%= t("lesson") %><%= @lesson.id%></h3>
+    <h2><%= t "category_id", id: @lesson.category.title %>
+    <h3><%= t "lesson_id", id: @lesson.id %>
+    <% if @lesson.finished? %>
+      <h3>
+        <%= t("lesson_finished", count: @lesson.correct_answer_count,
+          total: @lesson.total_word_count) %>
+      </h3>
+    <% end %>
   </aside>
   <div class="col-md-8">
     <%= form_for [@lesson.category, @lesson] do |f| %>

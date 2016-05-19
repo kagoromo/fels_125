@@ -1,14 +1,24 @@
+<%= provide :title, t("user") %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= render "shared/user_info" %>
+      <%= render "shared/user_info", user: current_user %>
+    </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
     </section>
   </aside>
   <aside class="col-md-8">
+    <h1><%= t "user" %></h1>
     <section class="stats">
       <% @users.each do |user| %>
         <%= render "shared/users", user: user unless user.admin? %>
       <% end %>
     </section>
+    <div class="center-parent">
+      <div class="center-child">
+        <%= will_paginate @users %>
+      </div>
+    </div>
   </aside>
 </div>
