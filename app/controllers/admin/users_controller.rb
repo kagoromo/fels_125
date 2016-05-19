@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :verify_admin
   
   def index
-    @users = User.all
+    @users = User.all.paginate page: params[:page], per_page: Settings.user.per_page
   end
   
   def destroy

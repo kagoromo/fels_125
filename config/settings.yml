@@ -1,5 +1,7 @@
 user:
+  default_size: 80
   half_size: 50
+  per_page: 10
 
 word:
   number_of_answers: 2
@@ -9,11 +11,11 @@ lesson:
   word_limit: 10
 
 category:
-  per_page: 5
   filter_type:
     all_words: "all_words"
     learned: "learned"
     not_learned: "not_learned"
+  per_page: 5
 
 activity:
   per_page: 10

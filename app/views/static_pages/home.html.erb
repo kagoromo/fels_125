@@ -3,23 +3,13 @@
   <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
-        <%= render "shared/user_info" %>
+        <%= render "shared/user_info", user: current_user %>
       </section>
       <section class="stats">
         <%= render "shared/stats" %>
       </section>
     </aside>
-    <div class="col-md-8">
-      <h1><%= t "activity.activities" %></h1>
-      <ul class="activities">
-        <%= render @activities %>
-      </ul>
-      <div class="center-parent">
-        <div class="center-child">
-          <%= will_paginate @activities %>
-        </div>
-      </div>
-    </div>
+    <%= render "shared/activities" %>
   </div>
 <% else %>
   <div class="center jumbotron">

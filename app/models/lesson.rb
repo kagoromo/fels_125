@@ -22,6 +22,10 @@ class Lesson < ActiveRecord::Base
     user_answers.correct.count unless new_record?
   end
   
+  def total_word_count
+    words.count
+  end
+  
   private
   def create_learned_activity
     Activity.create target_id: self.id, type_action: :learned,
