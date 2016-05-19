@@ -1,9 +1,15 @@
 <div class="panel panel-default">
-  <div class="panel-heading"><%= word.question %></div>
+  <div class="panel-heading">
+    <strong><%= word.question %></strong>
+  </div>
   <table class="table">
     <tr>
-      <td class="col-md-10"><%= t "choices" %></td>
-      <td class="col-md-2"><%= t "correct" %></td>
+      <td class="col-md-10">
+        <strong><%= t "choices" %></strong>
+      </td>
+      <td class="col-md-2">
+        <strong><%= t "correct" %></strong>
+      </td>
     </tr>
     <% word.answers.each do |answer| %>
       <tr>

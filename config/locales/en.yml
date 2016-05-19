@@ -64,8 +64,10 @@ en:
   all_categories: "All categories"
   filter: "Filter"
   category_id: "Category %{id}"
+  you_have_learned: "You have learned %{count}/%{total} words"
 
-  lesson_start: "Start"
+  lessons: "Lessons"
+  lesson_start: "Start a new lesson"
   lesson_create_failed: "Failed to start lesson"
   lesson_updated: "You have successfully finished your lesson"
   lesson_update_failed: "Failed to update lesson"
@@ -136,3 +138,5 @@ en:
     ago: "ago."
     in: "in"
     word: "word"
+  
+  relationships: "Relationships"

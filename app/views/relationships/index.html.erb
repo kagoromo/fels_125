@@ -1,27 +1,26 @@
+<%= provide :title, t("relationships") %>
 <div class="row">
-  <div class="col-md-6">
+  <aside class="col-md-4">
     <section class="user_info">
-      <h3>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h3>
+      <%= render "shared/user_info", user: @user %>
     </section>
     <section class="stats">
       <%= render "shared/stats" %>
     </section>
-  </div>
-  <div class="col-md-6">
-    <h2>
-      <strong>
-        <%= (@action == "following") ? t("following-users") : t("followed-users") %>
-      </strong>
-    </h2>
-    <% if @users %>
-      <% @users.each do |follow_user| %>
-        <p>
-          <%= link_to follow_user.name, follow_user %>
-        </p>
+  </aside>
+  <aside class="col-md-8">
+    <h1><%= (@action == "following") ? t("following-users") : t("followed-users") %></h1>
+    <section class="stats">
+      <% if @users %>
+        <% @users.each do |user| %>
+          <%= render "shared/users", user: user %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </section>
+    <div class="center-parent">
+      <div class="center-child">
+        <%= will_paginate @users %>
+      </div>
+    </div>
+  </aside>
 </div>

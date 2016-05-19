@@ -1,6 +1,17 @@
-<li id="category-<%= category.id %>">
-  <span class="category"><%= category.title %></span>
-  <p class="description"><%= category.description %></p>
-  <%= button_to t("lesson_start"), category_lessons_path(category),
-    class: "btn btn-primary" %>
-</li>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3><%= category.title %></h3>
+    <span class="title">
+      <%= t "you_have_learned",
+        count: (category.learned_word_count_of current_user),
+        total: category.total_word_count %>
+    </span>
+  </div>
+  <div class="panel-body">
+    <div><%= category.description %></div>
+  </div>
+  <div class="panel-footer">
+    <%= button_to t("lesson_start"), category_lessons_path(category),
+      class: "btn btn-primary" %>
+  </div>
+</div>

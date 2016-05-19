@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <%= form_tag words_path, method: :get do %>
           <div class="col-md-1">
-            <%= t "category" %>
+            <strong><%= t "category" %></strong>
           </div>
           <div class="col-md-3">
             <%= select_tag(:category_id,
@@ -41,7 +41,9 @@
       <%= render @words %>
     </tbody>
   </table>
-</div>
-<div class="panel-footer">
-  <%= will_paginate %>
+  <div class="center-parent">
+    <div class="center-child">
+      <%= will_paginate @words %>
+    </div>
+  </div>
 </div>

@@ -8,8 +8,18 @@
       <section class="stats">
         <%= render "shared/stats" %>
       </section>
+      <div class="row">
+        <div class="col-md-5">
+          <%= link_to t("words"), words_path, class: "btn btn-lg btn-primary" %>
+        </div>
+        <div class="col-md-5">
+          <%= link_to t("lessons"), categories_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
     </aside>
-    <%= render "shared/activities" %>
+    <aside class="col-md-8">
+      <%= render "shared/activities" %>
+    </aside>
   </div>
 <% else %>
   <div class="center jumbotron">

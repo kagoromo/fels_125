@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :load_user, only: [:show]
 
+  def index
+    @users = User.all.paginate page: params[:page], per_page: Settings.user.per_page
+  end  
+  
   def new
     @user = User.new
   end
@@ -15,6 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      log_in @user
       flash[:info] = t "success_signup"
       redirect_to @user
     else

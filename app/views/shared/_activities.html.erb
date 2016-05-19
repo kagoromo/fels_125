@@ -1,11 +1,13 @@
-<div class="col-md-8">
+<div class="col-md-12">
   <h1><%= t "activity.activities" %></h1>
-  <ul class="activities">
-    <%= render @activities %>
-  </ul>
-  <div class="center-parent">
-    <div class="center-child">
-      <%= will_paginate @activities %>
+  <% if @activities %>
+    <ul class="activities">
+      <%= render @activities %>
+    </ul>
+    <div class="center-parent">
+      <div class="center-child">
+        <%= will_paginate @activities %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

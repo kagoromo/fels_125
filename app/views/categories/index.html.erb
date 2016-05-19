@@ -1,7 +1,12 @@
 <%= provide title: t("categories") %>
-<h1><%= t "categories" %></h1>
-<%= will_paginate %>
-<ul class="categories">
-  <%= render @categories %>
-</ul>
-<%= will_paginate %>
+<div class="row">
+  <h1><%= t "categories" %></h1>
+  <ul class="categories">
+    <%= render @categories %>
+  </ul>
+  <div class="center-parent">
+    <div class="center-child">
+      <%= will_paginate @categories %>
+    </div>
+  </div>
+</div>
