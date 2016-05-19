@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160411165926) do
   create_table "activities", force: :cascade do |t|
     t.integer  "target_id"
     t.integer  "type_action"
+    t.integer  "number"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

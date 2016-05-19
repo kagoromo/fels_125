@@ -1,0 +1,22 @@
+<li>
+  <%= link_to gravatar_for(activity.user, size: Settings.user.half_size), activity.user %>
+  <%= link_to label_tag(activity.user.name), activity.user %>
+  <%= activity.type_action %>
+  <% if activity.learned? %>
+    <strong>
+      <%= pluralize(find_lesson(activity.target_id).correct_answer_count, t("activity.word")) %>
+    </strong>
+    <%= t "activity.in" %>
+    <strong>
+      <%= link_to t("lesson_id", id: activity.target_id),
+        category_lesson_path(find_lesson(activity.target_id).category,
+        find_lesson(activity.target_id)) %>
+    </strong>
+    <%= time_ago_in_words(activity.created_at) %> <%= t "activity.ago" %>
+  <% elsif activity.followed? || activity.unfollowed? %>
+    <%= link_to label_tag(find_user(activity.target_id).name),
+      find_user(activity.target_id) %> <%= time_ago_in_words(activity.created_at) %>
+      <%= t "activity.ago" %>
+  <% end %>
+  </strong>
+</li>

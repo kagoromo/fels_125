@@ -9,4 +9,6 @@ class UserAnswer < ActiveRecord::Base
   validates :category_id, presence: true
   validates :word_id, presence: true
   validates :lesson_id, presence: true
+
+  scope :correct, ->{joins(:answer).where answers: {is_correct: true}}
 end

@@ -9,11 +9,16 @@
         <%= render "shared/stats" %>
       </section>
     </aside>
-    <div class="col-md-3">
-      <h1><%= link_to "Words", words_path %></h1>
-    </div>
-    <div class="col-md-4">
-      <h1><%= link_to "Lessons", categories_path %></h1>
+    <div class="col-md-8">
+      <h1><%= t "activity.activities" %></h1>
+      <ul class="activities">
+        <%= render @activities %>
+      </ul>
+      <div class="center-parent">
+        <div class="center-child">
+          <%= will_paginate @activities %>
+        </div>
+      </div>
     </div>
   </div>
 <% else %>
